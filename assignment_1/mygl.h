@@ -28,10 +28,13 @@ Coordinate setCoordinate(int x, int y);
 Color setColor(int red, int green, int blue, int alpha);
 Pixel setPixel(Coordinate coord, Color color);
 Color getGradientColor(Pixel p1, Pixel p2);
+Coordinate getRandomCoordinate();
+Color getRandomColor();
 
 void PutPixel(Pixel p, Color color);
 void DrawLine(Pixel p1, Pixel p2);
 void DrawTriangle(Pixel p1, Pixel p2, Pixel p3);
 void MyGlDraw(void);
+void DrawFancyStar(); //Extra function
 
 #endif  // MYGL_H

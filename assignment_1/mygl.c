@@ -41,6 +41,24 @@ Color getGradientColor(Pixel p1, Pixel p2) {
     return color;
 }
 
+Coordinate getRandomCoordinate() {
+    Coordinate coord;
+    coord.x = (rand() % IMAGE_WIDTH);
+    coord.y = (rand() % IMAGE_HEIGHT);
+
+    return coord;
+}
+
+Color getRandomColor() {
+    Color color;
+    color.red = (rand() % 255); 
+    color.green = (rand() % 255); 
+    color.blue = (rand() % 255); 
+    color.alpha = 255; 
+    
+    return color;
+}
+
 void PutPixel(Pixel p, Color color) {
     fb_ptr[4 * (p.coord.x) + 4 * (p.coord.y) * IMAGE_WIDTH + 0] = color.red;
 	fb_ptr[4 * (p.coord.x) + 4 * (p.coord.y) * IMAGE_WIDTH + 1] = color.green;
@@ -116,4 +134,38 @@ void MyGlDraw(void) {
 
     //Uncomment the line below to enable the extra function
     //DrawFancyStar();
+}
+
+void DrawFancyStar() {
+    //This extra function draws a star and also draws pixels
+    //continuously in random coordinates with random colors
+
+    Coordinate p1_coord = setCoordinate(2*(IMAGE_WIDTH/4), 0);
+    Color p1_color = getRandomColor();
+    Pixel p1 = setPixel(p1_coord, p1_color);
+
+    Coordinate p2_coord = setCoordinate(0, 2*(IMAGE_HEIGHT/6));
+    Color p2_color = getRandomColor();
+    Pixel p2 = setPixel(p2_coord, p2_color);
+
+    Coordinate p3_coord = setCoordinate(IMAGE_WIDTH, 2*(IMAGE_HEIGHT/6));
+    Color p3_color = getRandomColor();
+    Pixel p3 = setPixel(p3_coord, p3_color);
+
+    Coordinate p4_coord = setCoordinate(0, IMAGE_HEIGHT);
+    Color p4_color = getRandomColor();
+    Pixel p4 = setPixel(p4_coord, p4_color);
+
+    Coordinate p5_coord = setCoordinate(IMAGE_WIDTH, IMAGE_HEIGHT);
+    Color p5_color = getRandomColor();
+    Pixel p5 = setPixel(p5_coord, p5_color);
+    
+    DrawLine(p1, p4);
+    DrawLine(p1, p5);
+    DrawLine(p5, p2);
+    DrawLine(p2, p3);
+    DrawLine(p3, p4);
+
+    Pixel p = setPixel(getRandomCoordinate(), getRandomColor());
+    PutPixel(p, p.color);
 }
