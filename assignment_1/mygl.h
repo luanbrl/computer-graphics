@@ -27,7 +27,7 @@ typedef struct {
 Coordinate setCoordinate(int x, int y);
 Color setColor(int red, int green, int blue, int alpha);
 Pixel setPixel(Coordinate coord, Color color);
-Color getGradientColor(Pixel p1, Pixel p2);
+Color getGradientColor(Pixel p1, Pixel p2, Pixel p);
 Coordinate getRandomCoordinate();
 Color getRandomColor();
 

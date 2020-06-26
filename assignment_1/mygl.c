@@ -27,16 +27,16 @@ Pixel setPixel(Coordinate coord, Color color) {
     return p;
 }
 
-Color getGradientColor(Pixel p1, Pixel p2) {
-    int dx = abs(p2.coord.x - p1.coord.x);
-    int dy = abs(p2.coord.y - p1.coord.y);
-    float d = sqrt((dx * dx) + (dy * dy));
+Color getGradientColor(Pixel p1, Pixel p2, Pixel p) {
+    double dt = sqrt(pow((p2.coord.x - p.coord.x), 2) + pow((p2.coord.y - p.coord.y), 2));
+    double dp = sqrt(pow((p2.coord.x - p1.coord.x), 2) + pow((p2.coord.y - p1.coord.y), 2));
+    double d = dp/dt;
 
     Color color;
-    color.red = (p1.color.red * (1 - d)) + ((p2.color.red) * d);
-    color.green = (p1.color.green * (1 - d)) + ((p2.color.green) * d);
-    color.blue = (p1.color.blue * (1 - d)) + ((p2.color.blue) * d);
-    color.alpha = (p1.color.alpha * (1 - d)) + ((p2.color.alpha) * d);
+    color.red = (p1.color.red * d) + ((p2.color.red) * (1 - d));
+    color.green = (p1.color.green * d) + ((p2.color.green) * (1 - d));
+    color.blue = (p1.color.blue * d) + ((p2.color.blue) * (1 - d));
+    color.alpha = (p1.color.alpha * d) + ((p2.color.alpha) * (1 - d));
 
     return color;
 }
@@ -68,6 +68,8 @@ void PutPixel(Pixel p, Color color) {
 
 void DrawLine(Pixel p1, Pixel p2) {
     Color color;
+    Pixel p;
+    p.coord = p1.coord;
 
     int w = p2.coord.x - p1.coord.x;
     int h = p2.coord.y - p1.coord.y;
@@ -94,16 +96,16 @@ void DrawLine(Pixel p1, Pixel p2) {
     int numerator = longest >> 1;
     
     for(int i = 0; i <= longest; i++) {
-        color = getGradientColor(p1, p2);
-        PutPixel(p1, color);
+        color = getGradientColor(p1, p2, p);
+        PutPixel(p, color);
         numerator += shortest;
         if(!(numerator < longest)) {
             numerator -= longest;
-            p1.coord.x += dx1;
-            p1.coord.y += dy1;
+            p.coord.x += dx1;
+            p.coord.y += dy1;
         } else {
-            p1.coord.x += dx2;
-            p1.coord.y += dy2;
+            p.coord.x += dx2;
+            p.coord.y += dy2;
         }
     }
 }
