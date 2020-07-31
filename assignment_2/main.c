@@ -96,7 +96,7 @@ int main(int argc, char** argv) {
     // Cria um color buffer onde cada pixel é representado por 4 bytes (RGBA)
     // Cria um depth buffer (para resolver a oclusão)
     // Cria dois color buffers para reduzir o flickering
-    glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE | GLUT_3_2_CORE_PROFILE);
+    glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
 
     // Define as dimensões do color buffer (ou a área útil do OpenGL na janela)
     glutInitWindowSize(IMAGE_WIDTH, IMAGE_HEIGHT);
