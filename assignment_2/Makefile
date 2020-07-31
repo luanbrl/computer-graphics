@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Wpedantic -std=c99 -O0
+CFLAGS = -Wall -Wextra -Wpedantic -std=c99 -O0 -g3
 SOURCES = main.c
 OUTPUT = moderngl_hello_world
 
