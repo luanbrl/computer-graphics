@@ -29,3 +29,11 @@ Para resolver este problema, bastou executar o seguinte comando:
 ```
 
 O código então foi compilado e executado sem erros e warnings.
+
+### Resultado
+
+O resultado da execução do código disponibilizado foi o seguinte:
+
+<p align="center">
+  <img src="https://github.com/luanbrl/computer-graphics/blob/master/assignment_2/screenshots/moderngl_hello_world.png">
+</p>
