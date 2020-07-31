@@ -6,15 +6,11 @@ A atividade é baseada em configurar e testar o ambiente de desenvolvimento em O
 ### Desenvolvimento
 Ao tentar simplesmente executar o código disponibilizado no sistema operacional macOS, ele acusa o seguinte erro:
 
-<p align="center">
   <img src="https://github.com/luanbrl/computer-graphics/blob/master/assignment_2/screenshots/error_1.png">
-</p>
 
 Isso ocorre porque os headers para o GLUT e OpenGL são diferentes no macOS. Para resolver esse problema, foi necessário mudar alguns parâmetros no Makefile, assim como no assignment_1. Após alterar o Makefile, foi possível compilar e executar o código. Porém, a janela não exibiu nada, como pode ser visto na imagem abaixo:
 
-<p align="center">
   <img src="https://github.com/luanbrl/computer-graphics/blob/master/assignment_2/screenshots/error_2.png">
-</p>
 
 Após diversas tentativas, foi decidido mudar o ambiente de desenvolvimento para uma máquina virtual com um diferente sistema operacional, o Linux. Com a máquina virtual devidamente configurada, a simples compilação retornou o seguinte erro:
 
@@ -34,6 +30,4 @@ O código então foi compilado e executado sem erros e warnings.
 
 O resultado da execução do código disponibilizado foi o seguinte:
 
-<p align="center">
-  <img src="https://github.com/luanbrl/computer-graphics/blob/master/assignment_2/screenshots/moderngl_hello_world.png">
-</p>
+<img src="https://github.com/luanbrl/computer-graphics/blob/master/assignment_2/screenshots/moderngl_hello_world.png">
