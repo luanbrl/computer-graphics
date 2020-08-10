@@ -18,8 +18,14 @@ void main() {
     vec3 k_s = vec3(1.0f, 1.0f, 1.0f);	
     vec3 I_p_pos = vec3(-2.0f, 2.0f, 1.5f);
     vec3 I_p = vec3(0.8f, 0.8f, 0.8f);
+    vec3 k_d = vec3(0.0f, 0.0f, 0.8f);
 
-    I = I_a * k_a;
+    vec3 L = normalize(I_p_pos - (model_mat * vec4(obj_spc_vertex_pos, 1.0)) .xyz);
+    vec3 N = normalize(mat3(transpose(inverse(model_mat))) * obj_spc_N); 
+
+    float cos_theta = dot(L, N);
+
+    I = I_a * k_a + I_p * k_d * cos_theta;
 
     gl_Position = proj_mat * view_mat * model_mat * vec4(obj_spc_vertex_pos, 1.0);
 }
