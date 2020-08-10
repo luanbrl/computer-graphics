@@ -3,9 +3,18 @@
 
 #define GLEW_STATIC
 
+// Workaround for compile on macOS
+#ifdef __APPLE__
+#include <GL/glew.h>
+#include <GLUT/glut.h>
+#include <OpenGL/gl.h>
+#else
 #include <GL/glew.h>
 #include <GL/glut.h>
+#endif
+
 #include <stdio.h>
+#include <stdlib.h>
 
 #include <iostream>
 
