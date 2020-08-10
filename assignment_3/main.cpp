@@ -76,8 +76,8 @@ void Display(void) {
     // You will have to change the contents of this matrix for the exercises
     float view_array[16] = {1.0f, 0.0f, 0.0f, 0.0f, 
                             0.0f, 1.0f, 0.0f, 0.0f, 
-                            0.0f, 0.0f, 1.0f, -2.0f, 
-                            0.0f, 0.0f, -0.5f, 1.0f};
+                            0.0f, 0.0f, 1.0f, 0.0f, 
+                            0.0f, 0.0f, 0.0f, 1.0f};
 
     glm::mat4 view_mat = glm::make_mat4(view_array);
 
@@ -85,8 +85,8 @@ void Display(void) {
     // You will have to change the contents of this matrix for the exercises
     float proj_array[16] = {1.0f, 0.0f, 0.0f, 0.0f, 
                             0.0f, 1.0f, 0.0f, 0.0f, 
-                            0.0f, 0.0f, 1.0f, 0.0f, 
-                            0.0f, 0.0f, 0.0f, 1.0f};
+                            0.0f, 0.0f, 1.0f, -2.0f, 
+                            0.0f, 0.0f, 0.5f, 1.0f};
 
     glm::mat4 proj_mat = glm::make_mat4(proj_array);
 
