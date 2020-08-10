@@ -20,12 +20,18 @@ void main() {
     vec3 I_p = vec3(0.8f, 0.8f, 0.8f);
     vec3 k_d = vec3(0.0f, 0.0f, 0.8f);
 
-    vec3 L = normalize(I_p_pos - (model_mat * vec4(obj_spc_vertex_pos, 1.0)) .xyz);
+    vec3 L = normalize(I_p_pos - (model_mat * vec4(obj_spc_vertex_pos, 1.0)).xyz);
     vec3 N = normalize(mat3(transpose(inverse(model_mat))) * obj_spc_N); 
 
     float cos_theta = dot(L, N);
 
-    I = I_a * k_a + I_p * k_d * cos_theta;
+    vec3 R = -reflect(L , N);
+    vec3 V = normalize(cam_pos - (model_mat*vec4(obj_spc_vertex_pos, 1.0)).xyz);
+
+    float cos_alpha = dot(R, V);
+    float cos_alpha_n = (pow(aux, 64));
+
+    I = I_a * k_a + I_p * (k_d * cos_theta + k_s * cos_alpha_n);
 
     gl_Position = proj_mat * view_mat * model_mat * vec4(obj_spc_vertex_pos, 1.0);
 }
